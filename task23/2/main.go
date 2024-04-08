@@ -5,18 +5,19 @@ import (
 	"github.com/brianvoe/gofakeit/v6"
 )
 
-func removeElementUnordered(arr *[]int, ind int) {
-	if len(*arr) == 0 {
-		return
+func removeElementUnordered(arr []int, ind int) []int {
+	if len(arr) == 0 {
+		return nil
 	}
-	if ind > len(*arr)-1 {
-		return
+	if ind > len(arr)-1 {
+		return nil
 	}
 
-	if ind != len(*arr)-1 {
-		(*arr)[ind] = (*arr)[len(*arr)-1]
+	if ind != len(arr)-1 {
+		arr[ind] = arr[len(arr)-1]
 	}
-	*arr = (*arr)[:len(*arr)-1]
+	arr = (arr)[:len(arr)-1]
+	return arr
 }
 
 func main() {
@@ -28,7 +29,7 @@ func main() {
 	var ind int
 	fmt.Scan(&ind)
 
-	removeElementUnordered(&slice, ind)
+	slice = removeElementUnordered(slice, ind)
 	fmt.Println("after deletion: ", slice)
 
 }
