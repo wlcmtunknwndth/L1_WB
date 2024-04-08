@@ -22,16 +22,16 @@ func main() {
 	slices.SortFunc(testArr, cmp)
 	fmt.Println(testArr)
 
-	fmt.Printf("number %d is at the index %d", 51211, BinarySearch(&testArr, 51211))
+	fmt.Printf("number %d is at the index %d", 51211, BinarySearch(testArr, 51211))
 }
 
-func BinarySearch(arr *[]int, key int) int {
+func BinarySearch(arr []int, key int) int {
 	l := 0
-	r := len(*arr) - 1
+	r := len(arr) - 1
 
 	for l <= r {
 		mid := (l + r) >> 1
-		midVal := (*arr)[mid]
+		midVal := arr[mid]
 
 		if midVal < key {
 			l = mid + 1

@@ -2,26 +2,26 @@ package main
 
 import "fmt"
 
-func partition(arr *[]int, l, r int) int {
+func partition(arr []int, l, r int) int {
 	//src := rand.NewSource(time.Now().UnixNano())
 	//rnd := rand.New(src)
-	pivot := (*arr)[(l+r)/2]
+	pivot := arr[(l+r)/2]
 
 	for {
-		for (*arr)[l] < pivot {
+		for arr[l] < pivot {
 			l++
 		}
-		for (*arr)[r] > pivot {
+		for arr[r] > pivot {
 			r--
 		}
 		if l >= r {
 			return r
 		}
-		(*arr)[l], (*arr)[r] = (*arr)[r], (*arr)[l]
+		arr[l], arr[r] = arr[r], arr[l]
 	}
 }
 
-func quickSort(arr *[]int, l, r int) {
+func quickSort(arr []int, l, r int) {
 	if l < r {
 		//pivot := (l + r) / 2
 		p := partition(arr, l, r)
@@ -32,6 +32,6 @@ func quickSort(arr *[]int, l, r int) {
 
 func main() {
 	testArr := []int{1, 2342, 12, 2357, 1213, 31, 99, 214, 2, 67, 84}
-	quickSort(&testArr, 0, len(testArr)-1)
+	quickSort(testArr, 0, len(testArr)-1)
 	fmt.Println(testArr)
 }

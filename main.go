@@ -4,14 +4,13 @@ import "fmt"
 
 //Что выведет данная программа и почему?
 
-func main() {
-	slice := []string{"a", "a"}
+func change(a *int) {
+	t := *a * 2
+	a = &t
+}
 
-	func(slice []string) {
-		slice = append(slice, "a")
-		slice[0] = "b"
-		slice[1] = "b"
-		fmt.Println(slice)
-	}(slice)
-	fmt.Println(slice)
+func main() {
+	a := 3
+	change(&a)
+	fmt.Println(a)
 }
